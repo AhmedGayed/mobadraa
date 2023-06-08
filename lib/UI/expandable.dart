@@ -164,6 +164,17 @@ class _MyExpansionPanelListState extends State<MyExpansionPanelList> {
                               fontFamily: 'Almarai',
                             ),
                           ),
+                          onExpansionChanged: ((newState) {
+
+                            if (newState)
+                              setState(() {
+                                selected = i;
+                              });
+                            else
+                              setState(() {
+                                selected = -1;
+                              });
+                          }),
                          children: [
                            Container(
                              color: Colors.white,
@@ -196,18 +207,7 @@ class _MyExpansionPanelListState extends State<MyExpansionPanelList> {
 
                              ),
                            ),
-                         ],
-                          onExpansionChanged: ((newState) {
-
-                            if (newState)
-                              setState(() {
-                                selected = i;
-                              });
-                            else
-                              setState(() {
-                                selected = -1;
-                              });
-                          })),
+                         ]),
                     ),
                   ),
                 );
